@@ -138,7 +138,7 @@ L'utilisateur peut choisir la langue du message de consentement en ajoutant un p
 ```html
 http://votre-site.com/?lang=fr
 ```
-Les langues disponibles sont : `en` (Anglais), `zh` (Chinois), `hi` (Hindi), `es` (Espagnol), `fr` (Français), `cre` (Créole).
+Les langues disponibles sont : `en` (Anglais), `zh` (Chinois), `hi` (Hindi), `es` (Espagnol), `fr` (Français), `cre` (Créole), `mq` (Créole martiniquais).
 
 ## Crédits
 
