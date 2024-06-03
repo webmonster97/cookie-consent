@@ -20,3 +20,7 @@ This PHP library manages cookie consent according to GDPR regulations. When a us
 ```bash
 git clone https://github.com/webmonster97/cookie-consent.git
 cd cookie-consent
+```
+## Credits
+
+This library was developed by Webmonster.tech. It is distributed under the MIT License. For more information, please visit the GitHub repository at https://github.com/webmonster97.
