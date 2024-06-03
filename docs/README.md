@@ -30,7 +30,7 @@ use CookieConsent\CookieConsent;
 
 // Définir la langue par défaut à 'fr'
 $lang = 'fr';
-if (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'zh', 'hi', 'es', 'fr', 'cre'])) {
+if (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'zh', 'hi', 'es', 'fr', 'cre', 'mq'])) {
     $lang = $_GET['lang'];
 }
 
