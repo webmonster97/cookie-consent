@@ -1,15 +1,15 @@
-# Documentation de la Bibliothèque de Gestion du Consentement des Cookies
+# Documentation de la bibliothèque de gestion du consentement des cookies
 
 ## Description
 
-Cette bibliothèque PHP permet de gérer le consentement des cookies conformément aux réglementations RGPD. Lorsqu'un utilisateur arrive sur une page, un message de consentement aux cookies est affiché. L'utilisateur peut accepter ou refuser l'utilisation des cookies. Si l'utilisateur accepte, le message ne s'affiche plus lors des visites ultérieures. Si l'utilisateur refuse, aucun cookie n'est utilisé.
+Cette bibliothèque PHP permet de gérer le consentement des cookies conformément aux réglementations RGPD. Lorsqu'un utilisateur arrive sur une page, un message de consentement aux cookies est affiché. L'utilisateur peut accepter ou refuser l'utilisation des cookies. Si l'utilisateur accepte, le message ne s'affiche plus lors des visites ultérieures. Si l'utilisateur refuse, aucun cookie n'est utilisé. La bibliothèque supporte plusieurs langues.
 
 ## Installation
 
 ### 1. Cloner le dépôt :
 
 ```bash
-git clone https://votre-repo.git
+git clone https://github.com/webmonster97/cookie-consent.git
 cd cookie-consent
 ```
 ### 2. Installer les dépendances via Composer :
@@ -28,12 +28,18 @@ require __DIR__ . '/vendor/autoload.php';
 
 use CookieConsent\CookieConsent;
 
-$consent = new CookieConsent();
+// Définir la langue par défaut à 'fr'
+$lang = 'fr';
+if (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'zh', 'hi', 'es', 'fr', 'cre'])) {
+    $lang = $_GET['lang'];
+}
+
+$consent = new CookieConsent($lang);
 $consent->handleConsent();
 ```
 ### 2. Afficher la bannière de consentement :
 
-Appelez la méthode renderConsentBanner() pour afficher la bannière de consentement dans votre page.
+Appelez la méthode `renderConsentBanner()` pour afficher la bannière de consentement dans votre page.
 
 ```php
 <!DOCTYPE html>
@@ -62,7 +68,7 @@ Assurez-vous que le fichier JavaScript consent.js est chargé correctement dans 
 
 ## Configuration
 
-Vous pouvez personnaliser la bannière de consentement en modifiant les styles via JavaScript.
+Vous pouvez personnaliser la bannière de consentement en modifiant les styles via JavaScript et choisir la langue du message en passant un paramètre dans l'URL.
 
 ### 1. Fichier `consent.js` :
 
@@ -125,6 +131,15 @@ Vous pouvez personnaliser les styles directement dans le HTML en utilisant les a
 </body>
 ```
 
+### 3. Choix de la langue :
+
+L'utilisateur peut choisir la langue du message de consentement en ajoutant un paramètre `lang` à l'URL, par exemple :
+
+```html
+http://votre-site.com/?lang=fr
+```
+Les langues disponibles sont : `en` (Anglais), `zh` (Chinois), `hi` (Hindi), `es` (Espagnol), `fr` (Français), `cre` (Créole).
+
 ## Crédits
 
-Cette bibliothèque a été développée par Webmonster.tech. Elle est distribuée sous licence MIT. Pour plus d'informations, veuillez consulter le dépôt GitHub https://github.com/webmonster97.
+Cette bibliothèque a été développée par Webmonster.tech. Elle est distribuée sous MIT Licence. Pour plus d'informations, veuillez consulter le dépôt GitHub https://github.com/webmonster97.

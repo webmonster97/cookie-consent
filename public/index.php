@@ -4,7 +4,13 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use CookieConsent\CookieConsent;
 
-$consent = new CookieConsent();
+// Définir la langue par défaut à 'fr'
+$lang = 'cre';
+if (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'zh', 'hi', 'es', 'fr', 'cre'])) {
+    $lang = $_GET['lang'];
+}
+
+$consent = new CookieConsent($lang);
 $consent->handleConsent();
 
 ?>
@@ -13,6 +19,7 @@ $consent->handleConsent();
 <head>
     <meta charset="UTF-8">
     <title>Exemple de Consentement de Cookies</title>
+    <script src="consent.js"></script>
 </head>
 <body>
 <h1>Bienvenue sur notre site</h1>
